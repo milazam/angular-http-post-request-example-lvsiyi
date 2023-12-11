@@ -1,0 +1,38 @@
+<h1>Angular Http POST request example</h1>
+<mat-card>
+  <h2>Enter name and job</h2>
+  <form [formGroup]="addUserForm" (ngSubmit)="saveUserTyped()">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" />
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input matInput placeholder="email" formControlName="email" />
+    </mat-form-field>
+    <br />
+    <button [disabled]="!addUserForm.valid" mat-raised-button type="submit">
+      Add User
+    </button>
+  </form>
+</mat-card>
+<mat-card>
+  <h2>List of Users</h2>
+  <ng-container *ngFor="let user of users">
+    {{ user.name }} - {{ user.email }}<br />
+  </ng-container>
+</mat-card>
+
+<mat-card>
+  <h2>List of Typed Users</h2>
+  <ng-container *ngFor="let user of usersTyped">
+    {{ user.name }} - {{ user.job }} - {{ user.id }} - {{ user.createdAt
+    }}<br />
+  </ng-container>
+</mat-card>
+<mat-card>
+  For the complete tutorial for Http Get Request with Parameters in Angular
+  visit
+  <a href="https://www.angularjswiki.com//httpclient/get-params/"
+    >https://www.angularjswiki.com//httpclient/get-params/</a
+  >
+</mat-card>
